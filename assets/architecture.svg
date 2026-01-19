@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600">
+  <defs>
+    <linearGradient id="background-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f4f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e6e9f0;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" fill="#4a5568">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="2" dy="2" result="offsetblur" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#background-gradient)" />
+
+  <text x="500" y="50" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="600" text-anchor="middle" fill="#2d3748">
+    Flujo de Arquitectura de Alertas de Gmail
+  </text>
+
+  <!-- Columna 1: Entrada -->
+  <g transform="translate(50, 120)">
+    <rect x="0" y="0" width="220" height="120" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="110" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2d3748">Usuario</text>
+    <text x="110" y="65" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a5568">Ejecuta el script</text>
+    <text x="110" y="85" font-family="Arial, sans-serif" font-size="14" font-style="italic" text-anchor="middle" fill="#718096">`main.py`</text>
+  </g>
+
+  <!-- Columna 2: Procesamiento -->
+  <g transform="translate(390, 120)">
+    <rect x="0" y="0" width="220" height="280" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="110" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2d3748">Procesamiento Principal</text>
+    <text x="20" y="65" font-family="Arial, sans-serif" font-size="14" fill="#4a5568">1. Autenticación OAuth2</text>
+    <text x="20" y="90" font-family="Arial, sans-serif" font-size="14" fill="#4a5568">2. Llamadas a Gmail API</text>
+    <text x="20" y="115" font-family="Arial, sans-serif" font-size="14" fill="#4a5568">3. Detección por `KEYWORDS`</text>
+    <text x="20" y="140" font-family="Arial, sans-serif" font-size="14" fill="#4a5568">4. Comprobación de adjuntos</text>
+    <text x="35" y="160" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#718096">`DANGEROUS_EXTENSIONS`</text>
+  </g>
+
+  <!-- Columna 3: Salidas -->
+  <g transform="translate(730, 120)">
+    <!-- Gmail API -->
+    <rect x="0" y="-50" width="220" height="100" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="110" y="-20" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2d3748">Gmail API</text>
+    <text x="110" y="10" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a5568">Recuperación de datos</text>
+    
+    <!-- Alertas Locales -->
+    <rect x="0" y="80" width="220" height="120" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="110" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2d3748">Alertas Locales</text>
+    <text x="110" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a5568">Guardado en</text>
+    <text x="110" y="165" font-family="Arial, sans-serif" font-size="14" font-style="italic" text-anchor="middle" fill="#718096">`alertas.txt`</text>
+
+    <!-- Notificaciones Externas -->
+    <rect x="0" y="230" width="220" height="120" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="110" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2d3748">Notificaciones (Opcional)</text>
+    <text x="110" y="295" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#4a5568">Envío a</text>
+    <text x="110" y="315" font-family="Arial, sans-serif" font-size="14" font-style="italic" text-anchor="middle" fill="#718096">Slack (Webhook)</text>
+  </g>
+
+  <!-- Flechas de Conexión -->
+  <!-- Flujo de datos principal -->
+  <path d="M270 180 L390 180" stroke="#4a5568" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" />
+
+  <!-- Llamada y respuesta de la API -->
+  <path d="M610 150 L730 120" stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowhead)" />
+  <path d="M730 135 L610 165" stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowhead)" />
+  
+  <!-- Salidas -->
+  <path d="M610 260 L730 260" stroke="#4a5568" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" />
+  <path d="M610 380 L730 380" stroke="#4a5568" stroke-width="2.5" fill="none" marker-end="url(#arrowhead)" />
+  
+</svg>
